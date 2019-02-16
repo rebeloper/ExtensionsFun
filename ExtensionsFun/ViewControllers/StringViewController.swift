@@ -43,7 +43,8 @@ class StringViewController: UIViewController {
     }
     
     @objc fileprivate func handleTextChange() {
-        
+        guard let text = textField.text  else { return }
+        label.text = text.asGoodLanguage()
     }
     
 }

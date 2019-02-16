@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     func asGoodLanguage() -> String {
-        return ""
+        return self.replacingOccurrences(of: "there", with: "*****").replacingOccurrences(of: "hi", with: "**")
     }
 }
 
