@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var exampleType: ExampleType = .string
+    var exampleType: ExampleType = .none
     
     enum ExampleType {
         case none
@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case double
         case dictionary
         case view
+        case navigation
+        case application
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -56,6 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = navigationController
         case .view:
             let rootViewController = ViewViewController()
+            let navigationController = UINavigationController(rootViewController: rootViewController)
+            window?.rootViewController = navigationController
+        case .navigation:
+            let rootViewController = NavigationViewController()
+            let navigationController = UINavigationController(rootViewController: rootViewController)
+            window?.rootViewController = navigationController
+        case .application:
+            let rootViewController = ApplicationViewController()
             let navigationController = UINavigationController(rootViewController: rootViewController)
             window?.rootViewController = navigationController
         }
