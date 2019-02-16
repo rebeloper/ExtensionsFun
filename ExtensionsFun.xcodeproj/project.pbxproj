@@ -18,6 +18,11 @@
 		C9C3B10B2218102F00735C4A /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1042218102F00735C4A /* DictionaryViewController.swift */; };
 		C9C3B10C2218102F00735C4A /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1052218102F00735C4A /* DateViewController.swift */; };
 		C9C3B10D2218102F00735C4A /* NoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1062218102F00735C4A /* NoneViewController.swift */; };
+		C9C3B1192218264000735C4A /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1182218264000735C4A /* NavigationViewController.swift */; };
+		C9C3B11C2218266800735C4A /* PushedFromLeftNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B11A2218266700735C4A /* PushedFromLeftNavigationViewController.swift */; };
+		C9C3B11D2218266800735C4A /* PushedFromRightNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B11B2218266700735C4A /* PushedFromRightNavigationController.swift */; };
+		C9C3B1202218268C00735C4A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B11E2218268C00735C4A /* ApplicationViewController.swift */; };
+		C9C3B1212218268C00735C4A /* ApplicationCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B11F2218268C00735C4A /* ApplicationCustomView.swift */; };
 		CF91956E2C92A9B57395D023 /* Pods_ExtensionsFun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3548D97AB17D030D20AE53B /* Pods_ExtensionsFun.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +43,11 @@
 		C9C3B1042218102F00735C4A /* DictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		C9C3B1052218102F00735C4A /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		C9C3B1062218102F00735C4A /* NoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoneViewController.swift; sourceTree = "<group>"; };
+		C9C3B1182218264000735C4A /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		C9C3B11A2218266700735C4A /* PushedFromLeftNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushedFromLeftNavigationViewController.swift; sourceTree = "<group>"; };
+		C9C3B11B2218266700735C4A /* PushedFromRightNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushedFromRightNavigationController.swift; sourceTree = "<group>"; };
+		C9C3B11E2218268C00735C4A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
+		C9C3B11F2218268C00735C4A /* ApplicationCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +76,6 @@
 				991BFE6AA615710F8B93DF25 /* Pods-ExtensionsFun.debug.xcconfig */,
 				10E5E955FE0D3F9B05BA3AE0 /* Pods-ExtensionsFun.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,10 +113,15 @@
 		C9C3B0FF2218101400735C4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9C3B11F2218268C00735C4A /* ApplicationCustomView.swift */,
+				C9C3B11E2218268C00735C4A /* ApplicationViewController.swift */,
 				C9C3B1052218102F00735C4A /* DateViewController.swift */,
 				C9C3B1042218102F00735C4A /* DictionaryViewController.swift */,
 				C9C3B1012218102F00735C4A /* DoubleViewController.swift */,
+				C9C3B1182218264000735C4A /* NavigationViewController.swift */,
 				C9C3B1062218102F00735C4A /* NoneViewController.swift */,
+				C9C3B11A2218266700735C4A /* PushedFromLeftNavigationViewController.swift */,
+				C9C3B11B2218266700735C4A /* PushedFromRightNavigationController.swift */,
 				C9C3B1022218102F00735C4A /* StringViewController.swift */,
 				C9C3B1002218102F00735C4A /* TimeIntervalViewController.swift */,
 				C9C3B1032218102F00735C4A /* ViewViewController.swift */,
@@ -234,7 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C3B1212218268C00735C4A /* ApplicationCustomView.swift in Sources */,
 				C9C3B10C2218102F00735C4A /* DateViewController.swift in Sources */,
+				C9C3B11C2218266800735C4A /* PushedFromLeftNavigationViewController.swift in Sources */,
+				C9C3B1202218268C00735C4A /* ApplicationViewController.swift in Sources */,
 				C9C3B1072218102F00735C4A /* TimeIntervalViewController.swift in Sources */,
 				C9C3B0EF22180FA300735C4A /* AppDelegate.swift in Sources */,
 				C9C3B0FE2218100B00735C4A /* Extensions.swift in Sources */,
@@ -242,7 +259,9 @@
 				C9C3B1092218102F00735C4A /* StringViewController.swift in Sources */,
 				C9C3B10B2218102F00735C4A /* DictionaryViewController.swift in Sources */,
 				C9C3B1082218102F00735C4A /* DoubleViewController.swift in Sources */,
+				C9C3B1192218264000735C4A /* NavigationViewController.swift in Sources */,
 				C9C3B10D2218102F00735C4A /* NoneViewController.swift in Sources */,
+				C9C3B11D2218266800735C4A /* PushedFromRightNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

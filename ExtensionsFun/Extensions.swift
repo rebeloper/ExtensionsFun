@@ -61,15 +61,15 @@ extension UIView {
 }
 
 extension UINavigationController {
-    func hideNavigationItemBackground() {
-        
-    }
-    
     func pushViewControllerFromLeft(controller: UIViewController) {
         
     }
     
     func popViewControllerToLeft() {
+        
+    }
+    
+    func hideNavigationItemBackground() {
         
     }
 }
