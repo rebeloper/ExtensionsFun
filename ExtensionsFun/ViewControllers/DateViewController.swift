@@ -42,7 +42,8 @@ class DateViewController: UIViewController {
     }
     
     @objc fileprivate func dateChanged(_ sender: UIDatePicker) {
-        
+        let date = sender.date
+        label.text = date.asString()
     }
     
 }

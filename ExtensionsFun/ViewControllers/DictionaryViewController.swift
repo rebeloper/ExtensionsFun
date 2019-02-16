@@ -47,7 +47,8 @@ class DictionaryViewController: UIViewController {
     }
     
     @objc fileprivate func handleButtonTapped() {
-        
+        dict1.update(with: dict2)
+        label.text = "\(dict1.description)"
     }
     
 }

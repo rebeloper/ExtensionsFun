@@ -75,7 +75,8 @@ class ViewViewController: UIViewController {
     }
     
     @objc fileprivate func handleButtonTapped() {
-        
+        let image = imageView.asImage()
+        outputImageView.image = image
     }
     
 }

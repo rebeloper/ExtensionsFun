@@ -10,6 +10,9 @@ import TinyConstraints
 
 class DoubleViewController: UIViewController {
     
+    let originalUnitLegth: UnitLength = .kilometers
+    let convertedUnitLength: UnitLength = .miles
+    
     lazy var textField: UITextField = {
         let tf = UITextField()
         tf.borderStyle = .roundedRect
@@ -43,7 +46,9 @@ class DoubleViewController: UIViewController {
     }
     
     @objc fileprivate func handleTextChange() {
-        
+        guard let text = textField.text else { return }
+        guard let distance = Double(text) else { return }
+        label.text = "\(distance.convert(from: originalUnitLegth, to: convertedUnitLength).rounded(to: 1)) miles"
     }
     
 }

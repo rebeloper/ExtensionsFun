@@ -41,5 +41,7 @@ class ApplicationCustomView: UIView {
         let okAction = UIAlertAction(title: "Cool", style: .cancel, handler: nil)
         alertController.addAction(okAction)
         
+        guard let topMostViewController = UIApplication.getTopMostViewController() else { return }
+        topMostViewController.present(alertController, animated: true, completion: nil)
     }
 }

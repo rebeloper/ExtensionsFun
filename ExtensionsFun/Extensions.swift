@@ -16,13 +16,18 @@ extension String {
 
 extension TimeInterval {
     func asTimeString() -> String {
-        return ""
+        let hours = Int(self) / 3600
+        let minutes = Int(self) / 60 % 60
+        let seconds = Int(self) % 60
+        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
 }
 
 extension Date {
     func asString() -> String {
-        return ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        return dateFormatter.string(from: self)
     }
     /*
      Wednesday, Sep 12, 2018           --> EEEE, MMM d, yyyy
@@ -40,42 +45,84 @@ extension Date {
 
 extension Double {
     func convert(from originalUnit: UnitLength, to convertedUnit: UnitLength) -> Double {
-        return 0.0
+        return Measurement(value: self, unit: originalUnit).converted(to: convertedUnit).value
     }
     
     func rounded(to places:Int) -> Double {
-        return 0.0
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
 
 extension Dictionary {
     mutating func update(with other:Dictionary) {
-        
+        for (key,value) in other {
+            self.updateValue(value, forKey:key)
+        }
     }
 }
 
 extension UIView {
     func asImage() -> UIImage? {
-        return nil
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(bounds: bounds)
+            return renderer.image { rendererContext in
+                layer.render(in: rendererContext.cgContext)
+            }
+        } else {
+            guard let context = UIGraphicsGetCurrentContext() else { return nil }
+            UIGraphicsBeginImageContext(self.frame.size)
+            self.layer.render(in: context)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            guard let cgImage = image?.cgImage else { return nil }
+            return UIImage(cgImage: cgImage)
+        }
     }
 }
 
 extension UINavigationController {
     func pushViewControllerFromLeft(controller: UIViewController) {
-        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        pushViewController(controller, animated: false)
     }
     
     func popViewControllerToLeft() {
-        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        popViewController(animated: false)
     }
     
     func hideNavigationItemBackground() {
-        
+        self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.isTranslucent = true
+        self.view.backgroundColor = UIColor.clear
     }
 }
 
 extension UIApplication {
     class func getTopMostViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-        return nil
+        if let nav = base as? UINavigationController {
+            return getTopMostViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return getTopMostViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return getTopMostViewController(base: presented)
+        }
+        return base
     }
 }

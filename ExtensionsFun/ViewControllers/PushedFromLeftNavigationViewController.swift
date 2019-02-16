@@ -24,7 +24,7 @@ class PushedFromLeftNavigationViewController: UIViewController {
     }
     
     @objc fileprivate func popToLeftBarButtonItemTapped() {
-        
+        navigationController?.popViewControllerToLeft()
     }
     
 }

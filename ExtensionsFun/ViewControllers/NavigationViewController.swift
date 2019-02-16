@@ -22,6 +22,7 @@ class NavigationViewController: UIViewController {
     
     fileprivate func setupNavigation() {
         navigationItem.title = "Navigation"
+        navigationController?.hideNavigationItemBackground()
         
         navigationItem.setRightBarButton(pushFromRightBarButtonItem, animated: false)
         navigationItem.setLeftBarButton(pushFromLeftBarButtonItem, animated: false)
@@ -34,7 +35,7 @@ class NavigationViewController: UIViewController {
     
     @objc fileprivate func pushFromLeftBarButtonItemTapped() {
         let viewController = PushedFromLeftNavigationViewController()
-        
+        navigationController?.pushViewControllerFromLeft(controller: viewController)
     }
     
 }

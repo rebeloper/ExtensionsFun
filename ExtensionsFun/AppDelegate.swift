@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var exampleType: ExampleType = .string
+    var exampleType: ExampleType = .application
     
     enum ExampleType {
         case none

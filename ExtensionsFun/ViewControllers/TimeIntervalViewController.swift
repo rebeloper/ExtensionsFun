@@ -43,7 +43,9 @@ class TimeIntervalViewController: UIViewController {
     }
     
     @objc fileprivate func handleTextChange() {
-        
+        guard let text = textField.text else { return }
+        guard let duration = TimeInterval(text) else { return }
+        label.text = duration.asTimeString()
     }
     
 }
