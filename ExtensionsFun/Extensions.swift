@@ -65,10 +65,11 @@ extension Dictionary {
 extension UIView {
     func asImage() -> UIImage? {
         if #available(iOS 10.0, *) {
-            let renderer = UIGraphicsImageRenderer(bounds: bounds)
-            return renderer.image { rendererContext in
-                layer.render(in: rendererContext.cgContext)
+            let renderer = UIGraphicsImageRenderer(size: self.bounds.size)
+            let image = renderer.image { ctx in
+                view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
             }
+            return image
         } else {
             guard let context = UIGraphicsGetCurrentContext() else { return nil }
             UIGraphicsBeginImageContext(self.frame.size)
